@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chá Revelação - Pietro ou Zoe?</title>
   <style>
     body {
@@ -15,7 +15,6 @@
       overflow-x: hidden;
     }
     header {
-      background: transparent;
       padding: 30px 20px 10px;
     }
     h1 {
@@ -33,7 +32,7 @@
     form {
       margin-top: 30px;
     }
-    input, button {
+    input, button, textarea {
       padding: 10px;
       margin: 5px;
       font-size: 1em;
@@ -74,23 +73,28 @@
     <p><strong>Jennifer Johanson & Erick Sander</strong> convidam você para o nosso Chá Revelação + Chá de Fralda!</p>
     <p>Estamos preparando o ninho do nosso bebê, <strong>Pietro ou Zoe</strong>, com muito amor e carinho. Contamos com seu carinho e sua presença!</p>
     <p><strong>Data:</strong> 01/05/2025</p>
-    <p><strong>Horário:</strong> 13h30</p>
+    <p><strong>Horário:</strong> 15h</p>
     <p><strong>Local:</strong> Rua Ina Maria Pinto, 1016 – Bairro Morada Nova</p>
 
     <div class="countdown" id="countdown"></div>
 
-    <form>
-<p><strong>Confirme sua presença</strong>:</p>
-<label for="nome">Nome completo:</label><br>
-<input id="nome" type="text" placeholder="Seu nome completo" required><br>
-<label for="observacao">Observações:</label><br>
-<textarea id="observacao" placeholder="Deixe aqui alguma observação (opcional)" rows="4" cols="40"></textarea><br>
-<button type="submit">Confirmar presença</button>
-</form>
+    <form action="https://formsubmit.co/ericksandergg@gmail.com" method="POST">
+      <p><strong>Confirme sua presença</strong>:</p>
+      <label for="nome">Nome completo:</label><br>
+      <input id="nome" type="text" name="nome" placeholder="Seu nome completo" required><br>
+      <label for="observacao">Observações:</label><br>
+      <textarea id="observacao" name="observacao" placeholder="Deixe aqui alguma observação (opcional)" rows="4" cols="40"></textarea><br>
 
-    <audio controls autoplay loop style="margin-top: 30px;">
+      <!-- configurações do formsubmit -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Nova confirmação de presença!">
+      <input type="hidden" name="_next" value="https://erickjennifer.github.io/Cha-revelacao/obrigado.html">
+
+      <button type="submit">Confirmar presença</button>
+    </form>
+
+    <audio autoplay loop style="display: none;">
       <source src="https://www.example.com/audio/pra-voce-guardei-o-amor.mp3" type="audio/mpeg">
-      Seu navegador não suporta áudio incorporado.
     </audio>
   </main>
 
@@ -104,9 +108,9 @@
 
   <script>
     const countdownElement = document.getElementById('countdown');
-    const eventDate = new Date("2025-05-01T13:30:00").getTime();
+    const eventDate = new Date("2025-05-01T15:00:00").getTime();
 
-    const countdown = setInterval(function() {
+    const countdown = setInterval(function () {
       const now = new Date().getTime();
       const distance = eventDate - now;
 
